@@ -8,13 +8,15 @@ Compare performance between Rust and C++ with 6x6 othello
 
 ## Execution
 ### C++
+```bash
 $ cd cpp
 $ make
 $ build/main.out
-If you want to finish fast, try next
+# If you want to finish fast, try next
 $ build/main.out 16
---------
+```
 [output]
+```plain
 Selected = 12
   abcdef
 1 OOOOOX
@@ -30,9 +32,12 @@ Result = -4
 Moves = f5 b3 a3 c1 d5 e5 d1 e1 e2 a5 c6 a4 a6 e6 b5 b6 a2 b2 d6 f6 b1 a1 pa f2 f1
 Count = 18282412125
 Elapsed = 725.954
---------
+```
+
 If you want to finish fast, try
+```bash
 $ target/release/board 16
+```
 
 ### Rust
 $ cd rust/board
