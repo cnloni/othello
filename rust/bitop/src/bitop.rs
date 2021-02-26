@@ -24,12 +24,14 @@ pub trait BitOp {
     // u64の全64bitのうち1であるbitの総数を求める
     // cpuの組み込み関数をコールする
     #[cfg(target_arch = "x86_64")]
+    #[inline(always)]
     fn bitcount(x: u64) -> i32 {
         unsafe {
             std::arch::x86_64::_popcnt64(x as i64)
         }
     }
     #[cfg(target_arch = "x86_64")]
+    #[inline(always)]
     fn lsb(x: u64) -> i32 {
         unsafe {
             std::arch::x86_64::_tzcnt_u64(x) as i32

@@ -13,6 +13,7 @@ impl BitOpBase for B16 {
 	const RV_MASK1 : u64 = 0x0000000000000FF0;
 	const RV_MASK2 : u64 = 0x0000000000000660;
 
+    #[inline(always)]
     fn get_upward(inc : i32, mask : u64, inturn : u64, opponent : u64) -> u64 {
         let w : u64 = opponent & mask;
         let mut t : u64 = w & (inturn << inc);
@@ -21,6 +22,7 @@ impl BitOpBase for B16 {
         t << inc
     }
 
+    #[inline(always)]
     fn get_downward(inc : i32, mask : u64, inturn : u64, opponent : u64) -> u64 {
         let w : u64 = opponent & mask;
         let mut t : u64 = w & (inturn >> inc);
@@ -29,6 +31,7 @@ impl BitOpBase for B16 {
         t >> inc
     }
 
+    #[inline(always)]
     fn reverse_upward(inc : i32, mask : u64, tmask : u64, inturn : u64, opponent : u64) -> u64 {
         let w : u64 = opponent & mask;
         let e1 : u64 = (tmask << inc) & w;
@@ -38,6 +41,7 @@ impl BitOpBase for B16 {
         return rv | (e1 & (b1 | b2));
     }
 
+    #[inline(always)]
     fn reverse_downward(inc : i32, mask : u64, tmask : u64, inturn : u64, opponent : u64) -> u64 {
         let w : u64 = opponent & mask;
         let e1 : u64 = (tmask >> inc) & w;
